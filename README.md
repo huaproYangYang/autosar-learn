@@ -67,7 +67,7 @@ AUTOSAR 行业第一工具链 Vector DaVinci 全景解读，从工具家族、�
 
 - [ ] 增加实战 demo：完整 SWC + ARXML 示例
 - [ ] 拆分章节为多个独立 MD
-- [ ] 补充 Adaptive AUTOSAR (ara::com) 实战
+- [x] 补充 Adaptive AUTOSAR (ara::com) 与通信中间件对比 → 见 `通信中间件DDS-SOMEIP-gRPC详解.md`
 
 ## 🤝 贡献
 
