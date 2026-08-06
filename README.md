@@ -33,6 +33,18 @@ AUTOSAR 行业第一工具链 Vector DaVinci 全景解读，从工具家族、�
   - 与 ETAS ISOLAR、EB tresos 的对比
   - 6 周实战学习路径 + 关键术语速查
 
+### [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
+车载/嵌入式三大通信中间件 DDS、SOME/IP、gRPC 协议原理、QoS、API、MCU 移植与选型决策全景详解。
+
+- **目标读者**：做车载 SOA、ADAS 域控、车云一体、机器人、可信云原生后端的工程师
+- **核心思路**：横向对比 + 纵向源码级拆解，覆盖协议栈 / 序列化 / 发现机制 / QoS / RTOS 移植 / 桥接
+- **覆盖内容**：
+  - DDS：DCPS 模型、22+ QoS、RTPS wire protocol、Fast DDS / Cyclone DDS / Connext 对比
+  - SOME/IP：消息结构、SOME/IP-SD 服务发现、ARXML 建模、vSOME/IP 开源实现
+  - gRPC：HTTP/2 + Protobuf、四种通信模式、拦截器、xDS、TLS/mTLS、车载落地策略
+  - MCU/RTOS 移植（lwIP / FreeRTOS）、共享内存传输、跨中间件桥接
+  - 选型决策树、性能观测与速查表
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
