@@ -51,6 +51,7 @@ AUTOSAR 行业第一工具链 Vector DaVinci 全景解读，从工具家族、�
 
 1. 先看 [`AUTOSAR-架构详解-后端转嵌入式.md`](./AUTOSAR-架构详解-后端转嵌入式.md) 建立 AUTOSAR 全景
 2. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
+3. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
 
 ## 🗂️ 仓库结构
 
@@ -58,7 +59,8 @@ AUTOSAR 行业第一工具链 Vector DaVinci 全景解读，从工具家族、�
 .
 ├── README.md
 ├── AUTOSAR-架构详解-后端转嵌入式.md
-└── Vector-DaVinci-工具链详解.md
+├── Vector-DaVinci-工具链详解.md
+└── 通信中间件DDS-SOMEIP-gRPC详解.md
 ```
 
 ## 📝 后续计划
