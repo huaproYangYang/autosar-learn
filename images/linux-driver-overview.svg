@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <!-- 背景 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="driverBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FED7AA"/>
+      <stop offset="100%" stop-color="#FDBA74"/>
+    </linearGradient>
+    <linearGradient id="hwBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+    <marker id="arrowDown" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 5 9 L 10 0 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowUp" viewBox="0 0 10 10" refX="5" refY="1" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 10 L 5 1 L 10 10 z" fill="#059669"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="550" y="38" text-anchor="middle" font-size="26" font-weight="700" fill="#0F172A">Linux 设备驱动 —— 软件与硬件之间的「翻译官」</text>
+  <text x="550" y="62" text-anchor="middle" font-size="13" fill="#64748B">把应用的"我想读寄存器"翻译成硬件能听懂的电信号；把硬件的中断和数据翻译成应用能读懂的字节流</text>
+
+  <!-- 左侧色条：四层 -->
+  <g font-size="13" font-weight="600" fill="#475569">
+    <rect x="20" y="100" width="6" height="100" fill="#60A5FA" rx="3"/>
+    <text x="35" y="155">① 用户态</text>
+    <text x="35" y="172" font-size="11" font-weight="400" fill="#64748B">User Space</text>
+
+    <rect x="20" y="220" width="6" height="100" fill="#FBBF24" rx="3"/>
+    <text x="35" y="275">② 内核接口层</text>
+    <text x="35" y="292" font-size="11" font-weight="400" fill="#64748B">VFS / Socket / Block</text>
+
+    <rect x="20" y="340" width="6" height="120" fill="#F97316" rx="3"/>
+    <text x="35" y="405" fill="#C2410C">③ 设备驱动</text>
+    <text x="35" y="422" font-size="11" font-weight="400" fill="#9A3412">Device Drivers</text>
+
+    <rect x="20" y="480" width="6" height="120" fill="#94A3B8" rx="3"/>
+    <text x="35" y="545">④ 硬件</text>
+    <text x="35" y="562" font-size="11" font-weight="400" fill="#64748B">Hardware</text>
+  </g>
+
+  <!-- ① 用户态 -->
+  <g>
+    <rect x="120" y="100" width="930" height="100" rx="10" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+    <!-- 4 个应用方块 -->
+    <g font-size="12" fill="#1E3A8A" text-anchor="middle">
+      <g transform="translate(180,140)">
+        <rect x="-55" y="-25" width="110" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">应用进程</text>
+        <text y="14" font-size="10" fill="#3B82F6">/usr/bin/myapp</text>
+      </g>
+      <g transform="translate(340,140)">
+        <rect x="-55" y="-25" width="110" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">can-utils</text>
+        <text y="14" font-size="10" fill="#3B82F6">candump / cansend</text>
+      </g>
+      <g transform="translate(500,140)">
+        <rect x="-55" y="-25" width="110" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">ip 命令</text>
+        <text y="14" font-size="10" fill="#3B82F6">ip link / ethtool</text>
+      </g>
+      <g transform="translate(660,140)">
+        <rect x="-55" y="-25" width="110" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">systemd 服务</text>
+        <text y="14" font-size="10" fill="#3B82F6">AP 执行管理 em</text>
+      </g>
+      <g transform="translate(820,140)">
+        <rect x="-55" y="-25" width="110" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">shell / 调试</text>
+        <text y="14" font-size="10" fill="#3B82F6">cat / ioctl</text>
+      </g>
+      <g transform="translate(970,140)">
+        <rect x="-50" y="-25" width="100" height="50" rx="6" fill="white" stroke="#60A5FA"/>
+        <text y="-3">用户态驱动</text>
+        <text y="14" font-size="10" fill="#3B82F6">UIO / DPDK / VFIO</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ② 内核接口层 -->
+  <g>
+    <rect x="120" y="220" width="930" height="100" rx="10" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+    <g font-size="12" fill="#78350F" text-anchor="middle">
+      <g transform="translate(220,260)">
+        <rect x="-70" y="-22" width="140" height="44" rx="6" fill="white" stroke="#F59E0B"/>
+        <text y="-3">VFS 虚拟文件系统</text>
+        <text y="14" font-size="10" fill="#B45309">open/read/write/ioctl/mmap</text>
+      </g>
+      <g transform="translate(430,260)">
+        <rect x="-70" y="-22" width="140" height="44" rx="6" fill="white" stroke="#F59E0B"/>
+        <text y="-3">Socket / 协议栈</text>
+        <text y="14" font-size="10" fill="#B45309">TCP/UDP/CAN/SOME-IP</text>
+      </g>
+      <g transform="translate(640,260)">
+        <rect x="-70" y="-22" width="140" height="44" rx="6" fill="white" stroke="#F59E0B"/>
+        <text y="-3">Block Layer (blk-mq)</text>
+        <text y="14" font-size="10" fill="#B45309">bio → request → driver</text>
+      </g>
+      <g transform="translate(850,260)">
+        <rect x="-70" y="-22" width="140" height="44" rx="6" fill="white" stroke="#F59E0B"/>
+        <text y="-3">设备模型</text>
+        <text y="14" font-size="10" fill="#B45309">bus / device / driver</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ③ 设备驱动（HIGHLIGHT） -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="340" width="930" height="120" rx="12" fill="url(#driverBg)" stroke="#EA580C" stroke-width="2.5"/>
+    <text x="140" y="365" font-size="14" font-weight="700" fill="#7C2D12">★ 你写的驱动就住在这里 ★</text>
+    <text x="140" y="382" font-size="11" fill="#9A3412">实现 file_operations / net_device_ops / queue_rq，把内核请求翻译成寄存器读写 + DMA + IRQ</text>
+
+    <g font-size="12" fill="#7C2D12" text-anchor="middle">
+      <g transform="translate(230,420)">
+        <rect x="-70" y="-22" width="140" height="50" rx="6" fill="white" stroke="#EA580C" stroke-width="1.5"/>
+        <text y="-3" font-weight="600">字符设备驱动</text>
+        <text y="14" font-size="10" fill="#C2410C">cdev / misc / ioctl</text>
+      </g>
+      <g transform="translate(420,420)">
+        <rect x="-70" y="-22" width="140" height="50" rx="6" fill="white" stroke="#EA580C" stroke-width="1.5"/>
+        <text y="-3" font-weight="600">块设备驱动</text>
+        <text y="14" font-size="10" fill="#C2410C">blk-mq / bio / DMA</text>
+      </g>
+      <g transform="translate(610,420)">
+        <rect x="-70" y="-22" width="140" height="50" rx="6" fill="white" stroke="#EA580C" stroke-width="1.5"/>
+        <text y="-3" font-weight="600">网络设备驱动</text>
+        <text y="14" font-size="10" fill="#C2410C">NAPI / sk_buff / TX ring</text>
+      </g>
+      <g transform="translate(800,420)">
+        <rect x="-70" y="-22" width="140" height="50" rx="6" fill="white" stroke="#EA580C" stroke-width="1.5"/>
+        <text y="-3" font-weight="600">总线 / platform</text>
+        <text y="14" font-size="10" fill="#C2410C">I²C / SPI / PCI / GPIO</text>
+      </g>
+      <g transform="translate(970,420)">
+        <rect x="-65" y="-22" width="130" height="50" rx="6" fill="white" stroke="#EA580C" stroke-width="1.5"/>
+        <text y="-3" font-weight="600">CAN / TSN MAC</text>
+        <text y="14" font-size="10" fill="#C2410C">车载专用</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ④ 硬件 -->
+  <g>
+    <rect x="120" y="480" width="930" height="120" rx="10" fill="url(#hwBg)" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="140" y="505" font-size="14" font-weight="700" fill="#1E293B">SoC 片上系统 + 外设</text>
+    <text x="140" y="522" font-size="11" fill="#475569">真实存在的物理器件：寄存器、中断线、DMA 通道、Clock、Reset</text>
+
+    <!-- SoC 芯片示意 -->
+    <g>
+      <rect x="280" y="540" width="540" height="50" rx="6" fill="#1E293B"/>
+      <text x="550" y="572" text-anchor="middle" font-size="13" font-weight="700" fill="#F1F5F9">SoC 芯片（CPU + 内存 + 外设控制器）</text>
+    </g>
+
+    <!-- 五个外设方块 -->
+    <g font-size="11" fill="#0F172A" text-anchor="middle">
+      <g transform="translate(180,565)">
+        <rect x="-50" y="-25" width="100" height="50" rx="6" fill="#F1F5F9" stroke="#475569"/>
+        <text y="-3" font-weight="600">CAN 控制器</text>
+        <text y="14" font-size="9" fill="#475569">M_CAN / FlexCAN</text>
+      </g>
+      <g transform="translate(890,565)">
+        <rect x="-50" y="-25" width="100" height="50" rx="6" fill="#F1F5F9" stroke="#475569"/>
+        <text y="-3" font-weight="600">以太网 MAC</text>
+        <text y="14" font-size="9" fill="#475569">macb / stmmac</text>
+      </g>
+      <g transform="translate(990,565)">
+        <rect x="-50" y="-25" width="100" height="50" rx="6" fill="#F1F5F9" stroke="#475569"/>
+        <text y="-3" font-weight="600">eMMC / SD</text>
+        <text y="14" font-size="9" fill="#475569">mmc subsystem</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 数据下行箭头（系统调用） -->
+  <g>
+    <line x1="270" y1="205" x2="270" y2="220" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowDown)"/>
+    <text x="278" y="218" font-size="11" fill="#1D4ED8" font-weight="600">read/write/ioctl</text>
+    <text x="278" y="232" font-size="10" fill="#3B82F6">系统调用 ↓</text>
+
+    <line x1="510" y1="325" x2="510" y2="340" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowDown)"/>
+    <text x="518" y="338" font-size="11" fill="#1D4ED8" font-weight="600">sub-system → driver</text>
+
+    <line x1="740" y1="465" x2="740" y2="480" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowDown)"/>
+    <text x="748" y="478" font-size="11" fill="#1D4ED8" font-weight="600">寄存器 / DMA</text>
+  </g>
+
+  <!-- 数据上行箭头（中断 / 数据） -->
+  <g>
+    <line x1="850" y1="480" x2="850" y2="465" stroke="#059669" stroke-width="2" marker-end="url(#arrowUp)"/>
+    <text x="858" y="478" font-size="11" fill="#047857" font-weight="600">中断 / 数据 ↑</text>
+
+    <line x1="620" y1="340" x2="620" y2="325" stroke="#059669" stroke-width="2" marker-end="url(#arrowUp)"/>
+    <text x="628" y="338" font-size="11" fill="#047857" font-weight="600">driver → sub-system</text>
+
+    <line x1="380" y1="220" x2="380" y2="205" stroke="#059669" stroke-width="2" marker-end="url(#arrowUp)"/>
+    <text x="388" y="218" font-size="11" fill="#047857" font-weight="600">read 返回数据 ↑</text>
+  </g>
+
+  <!-- 驱动翻译官形象（左下角说明） -->
+  <g transform="translate(120,625)">
+    <rect x="0" y="0" width="930" height="115" rx="10" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#92400E">驱动的三件事 = 翻译官的三个动作</text>
+
+    <!-- 三个小卡 -->
+    <g font-size="11" fill="#78350F">
+      <g transform="translate(40,72)">
+        <circle cx="0" cy="0" r="22" fill="#FBBF24"/>
+        <text x="0" y="5" text-anchor="middle" font-size="20" font-weight="700" fill="white">1</text>
+        <text x="50" y="-4" font-weight="600">拿资源</text>
+        <text x="50" y="14" fill="#92400E">从设备树 / ACPI 拿寄存器、</text>
+        <text x="50" y="28" fill="#92400E">IRQ、DMA、Clock</text>
+      </g>
+      <g transform="translate(340,72)">
+        <circle cx="0" cy="0" r="22" fill="#FB923C"/>
+        <text x="0" y="5" text-anchor="middle" font-size="20" font-weight="700" fill="white">2</text>
+        <text x="50" y="-4" font-weight="600">写逻辑</text>
+        <text x="50" y="14" fill="#92400E">实现 probe/open/read/</text>
+        <text x="50" y="28" fill="#92400E">write/xmit 等回调</text>
+      </g>
+      <g transform="translate(640,72)">
+        <circle cx="0" cy="0" r="22" fill="#F97316"/>
+        <text x="0" y="5" text-anchor="middle" font-size="20" font-weight="700" fill="white">3</text>
+        <text x="50" y="-4" font-weight="600">接内核</text>
+        <text x="50" y="14" fill="#92400E">注册到子系统，导出</text>
+        <text x="50" y="28" fill="#92400E">sysfs / ethtool / devlink</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 页脚 -->
+  <text x="550" y="755" text-anchor="middle" font-size="11" fill="#64748B">autosar-learn · Linux 驱动开发详解</text>
+</svg>
