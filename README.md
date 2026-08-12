@@ -163,6 +163,7 @@ AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比�
 - [x] 补充 Adaptive AUTOSAR (ara::com) 与通信中间件对比 → 见 `通信中间件DDS-SOMEIP-gRPC详解.md`
 - [x] 新增 AUTOSAR Adaptive Platform（AP）专题文档 → 见 `AUTOSAR-Adaptive-平台详解.md`
 - [x] 新增全球车企 C/C++ 使用情况专题 → 见 `车企C-C++使用情况详解.md`
+- [x] 新增 Rust 语言详解（车载与系统软件视角） → 见 `Rust-语言详解-车载与系统软件视角.md`
 - [ ] 增加主流车规 MCU（NXP S32K、Infineon AURIX、Renesas RH850）对比专题
 - [ ] 增加端到端自动驾驶（E2E AD）算法栈专题
 
