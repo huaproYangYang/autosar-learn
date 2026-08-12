@@ -150,6 +150,26 @@ AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比�
   - 选型决策树、面试高频题与后端类比对照表
   - 一页速查表 + 关键术语速查 + 延伸阅读
 
+### [`MISRA-C-C++-编码规范详解.md`](./MISRA-C-C++-编码规范详解.md)
+MISRA C/C++ 编码规范全景详解：版本演进、规则体系、合规框架、工具链、车企落地、ISO 26262 映射。
+
+- **目标读者**：写车载 ECU / 智驾域控 / 功能安全软件的 C/C++ 工程师；做工具链选型的架构师；准备 ISO 26262 / ASIL 认证的项目经理
+- **核心思路**：把 MISRA 既当**技术规范**（Rule/Directive）也当**流程框架**（Compliance 2020）和**商业生态**（工具厂商）三层来看
+- **覆盖内容**：
+  - MISRA 组织历史（1990s 英国汽车工业联盟起源）与治理结构
+  - MISRA C 版本演进：1998 / 2004 / 2012（含 Third Edition 2019）/ 2023
+  - MISRA C++:2008（基于 C++03）→ MISRA C++:2023（基于 C++17，AUTOSAR 联合）
+  - 规则三大类别（Mandatory / Required / Advisory）与 Rule vs Directive 区别
+  - MISRA Compliance 2020 框架：Guideline Claim + Deviation Record + Tool Coverage
+  - 偏离流程（Deviation Report 模板 + 各工具 source comment 语法）
+  - 合规检查工具生态：Helix QAC / LDRA / Coverity / Parasoft / IAR C-STAT / 开源 Cppcheck
+  - 与 AUTOSAR C++14 / ISO 26262-6 / CERT C / ISO/IEC TS 17961 的关系图谱
+  - OEM 强制要求与内部扩展（Toyota TSSC / GM GMW8773 / Bosch / VW / Mercedes / BMW）
+  - 最常违反的 10 大 Rule（17.7 / 14.3 / 10.x / 11.x 等）+ 经典违规代码示例
+  - 合规成本估算（10-30% 一次性 + 5-8% 持续）+ 6 步工程化落地路径
+  - MISRA 的 6 大批评（过度保守、工具覆盖不全、偏离滥用等）+ 应对策略
+  - 30 天从零开始清单 + 4 周学习路径 + 一页速查代码
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
