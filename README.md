@@ -77,6 +77,24 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
   - Rust 浪潮：已落地的车企与未能成为主流的 5 大原因
   - SDV、中央计算 + 区域控制器、端到端自动驾驶等趋势
 
+### [`Rust-语言详解-车载与系统软件视角.md`](./Rust-语言详解-车载与系统软件视角.md)
+Rust 语言全景详解：从语言特性、安全关键认证、车载落地情况、与 C++ 对比到学习路径。
+
+- **目标读者**：已掌握 C/C++，正在评估在 **车载 ECU、智驾域控、SDV 中间件、Linux 内核驱动、系统级工具链** 中引入 Rust 的工程师
+- **核心思路**：把 Rust 作为 C/C++ 旁边的另一种工程选项，**不替代**而是**并存**
+- **覆盖内容**：
+  - Rust 历史与版本演进（2024 Edition、1.85–1.88 关键特性）
+  - 核心语言特性：所有权、借用、生命周期、Trait、泛型、错误处理、智能指针
+  - 异步运行时生态（Tokio / embassy）与线程安全（Send/Sync）
+  - Unsafe、FFI、C++ 互操作（cxx / autocxx / crubit）
+  - 宏系统与编译期编程（macro_rules! / 过程宏 / const fn）
+  - 嵌入式生态（embedded-hal、embassy、RTIC、probe-rs） + MCU 支持矩阵
+  - 安全关键认证：Ferrocene（ASIL B）+ Safety-Critical Rust 联盟
+  - AUTOSAR Rust 工作组 + 车企落地（Tesla / Volvo / Woven / Bosch / CARIAD）
+  - Linux 内核、Android、AWS / Cloudflare / Discord 等互联网基础设施
+  - 白宫 ONCD、CISA、EU CRA 三大政策驱动的"内存安全"浪潮
+  - Rust vs C++ 17 维度对比 + 批评与局限 + 8 周学习路径
+
 ### [`C++标准演进详解-C++98到C++26.md`](./C++标准演进详解-C++98到C++26.md)
 从 C++98/03 到 C++26 每一个标准版本的语言特性、标准库变化，以及在 AUTOSAR / 功能安全语境下的取舍。
 
