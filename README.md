@@ -94,6 +94,24 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
   - `ara::core` 与标准库映射表、CP vs AP 特性禁区表
   - 编译器与认证工具链现实支持度 + 一页速查代码
 
+### [`AUTOSAR-Adaptive-vs-Classic-对比详解.md`](./AUTOSAR-Adaptive-vs-Classic-对比详解.md)
+AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比，从动机、架构、OS、通信、应用模型、安全、工具链到选型决策一文穿透。
+
+- **目标读者**：需要做 ECU 平台选型的架构师、面试候选人、从 CP 转 AP 或反之的工程师
+- **核心思路**：横纵交织——纵向沿"硬件 → OS → 运行时 → 通信 → 安全 → 工具链"主线深度对比，横向按"目标场景、关键术语、面试高频题"列表化呈现
+- **覆盖内容**：
+  - AP 出现的工程动机与 CP 局限（4 项核心硬约束）
+  - 定位与目标场景、典型 ECU 分类与芯片对照
+  - 整体架构差异（CP 三层 vs AP 四层 + 进程/线程/内存保护）
+  - 操作系统与运行时（AUTOSAR OS vs POSIX OS + 启动流程对比）
+  - 通信模型（RTE/COM 栈 vs ara::com Method/Event/Field + SOME/IP/DDS）
+  - 应用模型与 Manifest 四类（Machine/Application/ServiceInstance/SoftwareCluster）
+  - 安全与功能安全对比（DEM/WDG vs PHM/SM + ISO 26262 / 21434）
+  - Functional Cluster ↔ BSW 模块对照表 + AP 新增能力
+  - 开发流程与工具链对照 + CP/AP 共存模式
+  - 选型决策树、面试高频题与后端类比对照表
+  - 一页速查表 + 关键术语速查 + 延伸阅读
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
