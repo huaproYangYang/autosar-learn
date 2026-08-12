@@ -114,7 +114,7 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 ├── AUTOSAR-Adaptive-平台详解.md
 ├── Vector-DaVinci-工具链详解.md
 ├── 通信中间件DDS-SOMEIP-gRPC详解.md
-└── 车企C-C++使用情况详解.md
+├── 车企C-C++使用情况详解.md
 └── C++标准演进详解-C++98到C++26.md
 ```
 
