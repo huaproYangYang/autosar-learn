@@ -174,7 +174,10 @@ AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比�
 ├── Vector-DaVinci-工具链详解.md
 ├── 通信中间件DDS-SOMEIP-gRPC详解.md
 ├── 车企C-C++使用情况详解.md
-└── C++标准演进详解-C++98到C++26.md
+├── C++标准演进详解-C++98到C++26.md
+├── Rust-语言详解-车载与系统软件视角.md
+├── Linux驱动开发详解.md
+└── AUTOSAR-Adaptive-vs-Classic-对比详解.md
 ```
 
 ## 📝 后续计划
