@@ -112,6 +112,26 @@ Rust 语言全景详解：从语言特性、安全关键认证、车载落地情
   - `ara::core` 与标准库映射表、CP vs AP 特性禁区表
   - 编译器与认证工具链现实支持度 + 一页速查代码
 
+### [`Linux驱动开发详解.md`](./Linux驱动开发详解.md)
+Linux 内核驱动开发全景详解，从内核模块机制到字符/块/网络三大类驱动 + 车载 AP 落地实战。
+
+- **目标读者**：从 CP/AP 应用层下沉到 Linux 内核的工程师、智驾/座舱域控 BSP 开发者
+- **核心思路**：**原理 + 实战并重**——每章先讲内核机制，再给可编译运行的代码，最后回到 AP/车载场景
+- **覆盖内容**：
+  - 内核全景、模块机制、字符设备（含 misc/cdev/ioctl/poll/mmap/iter）
+  - Linux 设备模型（bus/device/driver）与 sysfs/uevent
+  - 平台设备 + 设备树（含 DTS 语法、overlay、of API）
+  - 中断（GIC、threaded IRQ、硬中断/下半部）+ IRQ 亲和性
+  - 并发同步（spinlock/mutex/RCU/seqlock/atomic/completion + lockdep）
+  - 内存与 DMA（streaming/coherent/SG、SMMU、CMA）
+  - 块设备 blk-mq 实战、IO scheduler
+  - 网络设备 NAPI + ethtool、车载以太网 MAC/TSN
+  - 调试与可观测（printk/dynamic debug/ftrace/bpftrace/perf/KASAN/kmemleak）
+  - 车载 / AP 落地：SocketCAN、车载以太网、I2C/SPI 外设、DRM/KMS 座舱、PCIe、PREEMPT_RT、安全启动
+  - DKMS / 内核模块签名 / 内核树内 Kconfig 编写
+  - 调试工具速查 + 故障排查清单 + 性能优化清单
+  - 写驱动前 8 个问题 + 学习路径与延伸阅读
+
 ### [`AUTOSAR-Adaptive-vs-Classic-对比详解.md`](./AUTOSAR-Adaptive-vs-Classic-对比详解.md)
 AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比，从动机、架构、OS、通信、应用模型、安全、工具链到选型决策一文穿透。
 
