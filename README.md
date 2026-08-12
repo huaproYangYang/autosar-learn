@@ -197,7 +197,8 @@ MISRA C/C++ 编码规范全景详解：版本演进、规则体系、合规框�
 ├── C++标准演进详解-C++98到C++26.md
 ├── Rust-语言详解-车载与系统软件视角.md
 ├── Linux驱动开发详解.md
-└── AUTOSAR-Adaptive-vs-Classic-对比详解.md
+├── AUTOSAR-Adaptive-vs-Classic-对比详解.md
+└── MISRA-C-C++-编码规范详解.md
 ```
 
 ## 📝 后续计划
