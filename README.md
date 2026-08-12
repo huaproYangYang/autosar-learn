@@ -209,6 +209,7 @@ MISRA C/C++ 编码规范全景详解：版本演进、规则体系、合规框�
 - [x] 新增 AUTOSAR Adaptive Platform（AP）专题文档 → 见 `AUTOSAR-Adaptive-平台详解.md`
 - [x] 新增全球车企 C/C++ 使用情况专题 → 见 `车企C-C++使用情况详解.md`
 - [x] 新增 Rust 语言详解（车载与系统软件视角） → 见 `Rust-语言详解-车载与系统软件视角.md`
+- [x] 新增 MISRA C/C++ 编码规范详解 → 见 `MISRA-C-C++-编码规范详解.md`
 - [ ] 增加主流车规 MCU（NXP S32K、Infineon AURIX、Renesas RH850）对比专题
 - [ ] 增加端到端自动驾驶（E2E AD）算法栈专题
 
