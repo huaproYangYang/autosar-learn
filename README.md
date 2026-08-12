@@ -60,6 +60,23 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
   - 典型应用场景（智驾域、座舱域、车身/网关域）+ 中间件选型决策
   - 8 周学习路径 + 关键术语速查表
 
+### [`车企C-C++使用情况详解.md`](./车企C-C++使用情况详解.md)
+全球主流车企（传统 + 新势力 + Tier-1）对 C / C++ 的使用现状、编译工具链、合规标准、Rust 替代趋势全景剖析。
+
+- **目标读者**：嵌入式工程师、车载软件岗位求职者、车企技术选型决策者
+- **核心思路**：分车企逐一拆解语言栈 + 横向对比工具链/标准 + 行业趋势预判
+- **覆盖内容**：
+  - C/C++ 在车载不可替代的 6 大理由（实时性、硬件控制、MISRA、ISO 26262…）
+  - VW CARIAD、丰田 Woven、GM Ultifi、Ford SYNC、BMW iDrive、Mercedes MB.OS
+  - 特斯拉 Rust 转型（2022 起，C++ 仍为绝对主力）
+  - 中国新势力：蔚来 SkyOS、理想星环 OS（开源）、小鹏 Xmart、华为 MDC、小米 HyperOS
+  - Tier-1：博世、大陆、电装、安波福、采埃孚、Vector、ETAS
+  - 编译工具链：IAR / GHS / Tasking / Wind River / GCC / Clang
+  - 合规标准：MISRA C/C++、AUTOSAR C++14、ISO 26262 ASIL 映射
+  - C vs C++ 决策矩阵 + C++ 在车端的"禁区清单"
+  - Rust 浪潮：已落地的车企与未能成为主流的 5 大原因
+  - SDV、中央计算 + 区域控制器、端到端自动驾驶等趋势
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
@@ -68,6 +85,7 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 2. 接触域控/智驾/座舱/中央计算时，看 [`AUTOSAR-Adaptive-平台详解.md`](./AUTOSAR-Adaptive-平台详解.md) 学习 AP
 3. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
 4. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
+5. 想了解车企语言栈现状时看 [`车企C-C++使用情况详解.md`](./车企C-C++使用情况详解.md)
 
 ## 🗂️ 仓库结构
 
@@ -77,7 +95,8 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 ├── AUTOSAR-架构详解-后端转嵌入式.md
 ├── AUTOSAR-Adaptive-平台详解.md
 ├── Vector-DaVinci-工具链详解.md
-└── 通信中间件DDS-SOMEIP-gRPC详解.md
+├── 通信中间件DDS-SOMEIP-gRPC详解.md
+└── 车企C-C++使用情况详解.md
 ```
 
 ## 📝 后续计划
@@ -86,6 +105,9 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 - [ ] 拆分章节为多个独立 MD
 - [x] 补充 Adaptive AUTOSAR (ara::com) 与通信中间件对比 → 见 `通信中间件DDS-SOMEIP-gRPC详解.md`
 - [x] 新增 AUTOSAR Adaptive Platform（AP）专题文档 → 见 `AUTOSAR-Adaptive-平台详解.md`
+- [x] 新增全球车企 C/C++ 使用情况专题 → 见 `车企C-C++使用情况详解.md`
+- [ ] 增加主流车规 MCU（NXP S32K、Infineon AURIX、Renesas RH850）对比专题
+- [ ] 增加端到端自动驾驶（E2E AD）算法栈专题
 
 ## 🤝 贡献
 
