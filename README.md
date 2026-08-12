@@ -77,6 +77,23 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
   - Rust 浪潮：已落地的车企与未能成为主流的 5 大原因
   - SDV、中央计算 + 区域控制器、端到端自动驾驶等趋势
 
+### [`C++标准演进详解-C++98到C++26.md`](./C++标准演进详解-C++98到C++26.md)
+从 C++98/03 到 C++26 每一个标准版本的语言特性、标准库变化，以及在 AUTOSAR / 功能安全语境下的取舍。
+
+- **目标读者**：写车载 C++ 的嵌入式工程师、需要做语言标准/工具链选型的架构师
+- **核心思路**：按版本纵向罗列特性，再横向对照 AUTOSAR C++14 / MISRA C++:2023 / `ara::core`
+- **覆盖内容**：
+  - 版本时间线速览与 ISO 编号对照
+  - C++98/03 基线与 MISRA C++:2008
+  - C++11 断代升级（移动语义、lambda、并发内存模型、智能指针）
+  - C++14（AUTOSAR 指南基线）为何被选中，342 条规则方向
+  - C++17（`optional`/`variant`/`string_view`/`constexpr if`）与 MISRA C++:2023
+  - C++20 四大特性（Concepts / Ranges / Coroutines / Modules）+ `std::span`
+  - C++23（`expected`/`mdspan`/`flat_map`/`generator`/`print`）
+  - C++26 进行中（Reflection / Contracts / std::execution / inplace_vector）
+  - `ara::core` 与标准库映射表、CP vs AP 特性禁区表
+  - 编译器与认证工具链现实支持度 + 一页速查代码
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
