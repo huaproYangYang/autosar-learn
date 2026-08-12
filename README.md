@@ -45,6 +45,21 @@ AUTOSAR 行业第一工具链 Vector DaVinci 全景解读，从工具家族、�
   - MCU/RTOS 移植（lwIP / FreeRTOS）、共享内存传输、跨中间件桥接
   - 选型决策树、性能观测与速查表
 
+### [`AUTOSAR-Adaptive-平台详解.md`](./AUTOSAR-Adaptive-平台详解.md)
+AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/智驾的高性能 SOA 中间件平台。
+
+- **目标读者**：从 CP 转 AP、做智驾/座舱/车云域控、准备面试车载中间件岗位的工程师
+- **核心思路**：用"Linux 进程 + gRPC + K8s"类比 AP，把 ARA/FC/Manifest/SOA 一线贯穿
+- **覆盖内容**：
+  - AP 出现的工程动机与 Classic vs Adaptive 深度对比
+  - ARA 接口规范总览、AP 整体架构（AA / ARA / FC / OS）
+  - 核心 Functional Cluster：ara::com / exec / phm / per / sm / diag / log / iam / crypto
+  - ara::com 服务通信三要素（Method / Event / Field）+ 代码骨架
+  - Manifest 模型（Machine / Application / Service Instance / SoftwareCluster）
+  - 开发流水线与工具链（Vector DaVinci Adaptive / EB tresos / ETAS RTA-VRTE）
+  - 典型应用场景（智驾域、座舱域、车身/网关域）+ 中间件选型决策
+  - 8 周学习路径 + 关键术语速查表
+
 ## 🚀 快速开始
 
 按顺序阅读效果最佳：
