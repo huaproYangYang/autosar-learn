@@ -65,8 +65,9 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 按顺序阅读效果最佳：
 
 1. 先看 [`AUTOSAR-架构详解-后端转嵌入式.md`](./AUTOSAR-架构详解-后端转嵌入式.md) 建立 AUTOSAR 全景
-2. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
-3. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
+2. 接触域控/智驾/座舱/中央计算时，看 [`AUTOSAR-Adaptive-平台详解.md`](./AUTOSAR-Adaptive-平台详解.md) 学习 AP
+3. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
+4. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
 
 ## 🗂️ 仓库结构
 
@@ -74,6 +75,7 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 .
 ├── README.md
 ├── AUTOSAR-架构详解-后端转嵌入式.md
+├── AUTOSAR-Adaptive-平台详解.md
 ├── Vector-DaVinci-工具链详解.md
 └── 通信中间件DDS-SOMEIP-gRPC详解.md
 ```
@@ -83,6 +85,7 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 - [ ] 增加实战 demo：完整 SWC + ARXML 示例
 - [ ] 拆分章节为多个独立 MD
 - [x] 补充 Adaptive AUTOSAR (ara::com) 与通信中间件对比 → 见 `通信中间件DDS-SOMEIP-gRPC详解.md`
+- [x] 新增 AUTOSAR Adaptive Platform（AP）专题文档 → 见 `AUTOSAR-Adaptive-平台详解.md`
 
 ## 🤝 贡献
 
