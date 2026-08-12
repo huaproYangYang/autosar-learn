@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <!-- C/C++ 灰暗色调 -->
+    <linearGradient id="cppBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FECACA"/>
+      <stop offset="100%" stop-color="#FCA5A5"/>
+    </linearGradient>
+    <!-- Rust 干净色调 -->
+    <linearGradient id="rustBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#BBF7D0"/>
+      <stop offset="100%" stop-color="#86EFAC"/>
+    </linearGradient>
+    <!-- 卡片底色 -->
+    <linearGradient id="card1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9D5FF"/>
+      <stop offset="100%" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <!-- 箭头 -->
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <!-- 阴影 -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="820" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="600" y="40" text-anchor="middle" font-size="28" font-weight="700" fill="#0F172A">Rust 是怎么做到「内存安全」的？</text>
+  <text x="600" y="68" text-anchor="middle" font-size="14" fill="#475569">把内存想成「图书馆的书」——三把钥匙管住所有借阅行为</text>
+
+  <!-- ========== 三大机制卡片 ========== -->
+  <!-- 卡片1：所有权 Ownership -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="100" width="360" height="240" rx="14" fill="url(#card1)" stroke="#3B82F6" stroke-width="2"/>
+  </g>
+  <text x="220" y="135" text-anchor="middle" font-size="20" font-weight="700" fill="#1E3A8A">① 所有权 Ownership</text>
+  <text x="220" y="158" text-anchor="middle" font-size="12" fill="#1E40AF">「一本书同一时间只能一个人借走」</text>
+  <!-- 比喻：Alice 把书给 Bob 后，自己就"失效"了 -->
+  <g transform="translate(70,180)">
+    <!-- Alice -->
+    <circle cx="20" cy="30" r="18" fill="#60A5FA"/>
+    <text x="20" y="35" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">A</text>
+    <text x="20" y="70" text-anchor="middle" font-size="12" fill="#1E40AF">Alice（原来主人）</text>
+    <!-- 箭头 move -->
+    <path d="M 50 30 L 130 30" stroke="#1E40AF" stroke-width="3" marker-end="url(#arrowR)" fill="none"/>
+    <text x="90" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">move 转移</text>
+    <!-- Bob -->
+    <circle cx="160" cy="30" r="18" fill="#34D399"/>
+    <text x="160" y="35" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">B</text>
+    <text x="160" y="70" text-anchor="middle" font-size="12" fill="#065F46">Bob（新主人）</text>
+    <!-- 书 -->
+    <rect x="200" y="18" width="40" height="32" fill="#FCD34D" stroke="#92400E" stroke-width="2" rx="2"/>
+    <text x="220" y="38" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">📖书</text>
+    <text x="220" y="70" text-anchor="middle" font-size="12" fill="#92400E">唯一所有者</text>
+  </g>
+  <text x="220" y="285" text-anchor="middle" font-size="13" fill="#1E3A8A" font-weight="600">转移后 Alice 那本书就「不存在」了 → 杜绝「两个主人各释放一次」</text>
+  <text x="220" y="310" text-anchor="middle" font-size="11" fill="#1E40AF">翻译成代码：let s2 = s1;  // s1 失效</text>
+  <text x="220" y="328" text-anchor="middle" font-size="11" fill="#1E40AF">对应的 bug：Double-Free（双重释放）</text>
+
+  <!-- 卡片2：借用 Borrowing -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="100" width="360" height="240" rx="14" fill="url(#card2)" stroke="#F59E0B" stroke-width="2"/>
+  </g>
+  <text x="600" y="135" text-anchor="middle" font-size="20" font-weight="700" fill="#78350F">② 借用 Borrowing</text>
+  <text x="600" y="158" text-anchor="middle" font-size="12" fill="#92400E">「多个人可以同时「看」，但「写」只能一个人」</text>
+  <!-- 比喻：多人看一本书 -->
+  <g transform="translate(450,180)">
+    <!-- 三个人看同一本书 -->
+    <circle cx="30" cy="30" r="14" fill="#A78BFA"/>
+    <text x="30" y="35" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">读者1</text>
+    <circle cx="30" cy="60" r="14" fill="#A78BFA"/>
+    <text x="30" y="65" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">读者2</text>
+    <circle cx="30" cy="90" r="14" fill="#A78BFA"/>
+    <text x="30" y="95" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">读者3</text>
+    <!-- 共享 -->
+    <text x="80" y="65" font-size="11" fill="#78350F">&amp;  &amp;  &amp; （多个 &amp;）</text>
+    <text x="80" y="85" font-size="11" fill="#78350F">✅ 同时看 OK</text>
+    <!-- 一个人写 -->
+    <circle cx="200" cy="30" r="14" fill="#F87171"/>
+    <text x="200" y="35" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">作者</text>
+    <text x="240" y="35" font-size="11" fill="#78350F">&amp;mut</text>
+    <text x="280" y="35" font-size="11" fill="#78350F">→ ❌ 同时只能 1 人</text>
+    <!-- 总结 -->
+    <text x="80" y="120" font-size="12" fill="#78350F" font-weight="600">规则：要么「很多人看」，要么「一个人改」</text>
+    <text x="80" y="138" font-size="12" fill="#78350F" font-weight="600">绝不能「又看又改」或「多人一起改」</text>
+  </g>
+  <text x="600" y="335" text-anchor="middle" font-size="11" fill="#92400E">对应的 bug：数据竞争、迭代器失效</text>
+
+  <!-- 卡片3：生命周期 Lifetimes -->
+  <g filter="url(#shadow)">
+    <rect x="800" y="100" width="360" height="240" rx="14" fill="url(#card3)" stroke="#8B5CF6" stroke-width="2"/>
+  </g>
+  <text x="980" y="135" text-anchor="middle" font-size="20" font-weight="700" fill="#4C1D95">③ 生命周期 Lifetimes</text>
+  <text x="980" y="158" text-anchor="middle" font-size="12" fill="#5B21B6">「借出去的阅览证，活得不能比主人短」</text>
+  <!-- 时间轴比喻 -->
+  <g transform="translate(830,185)">
+    <!-- 主人的生命线 -->
+    <text x="10" y="20" font-size="11" fill="#5B21B6">原书 Alice</text>
+    <line x1="80" y1="16" x2="300" y2="16" stroke="#5B21B6" stroke-width="3"/>
+    <text x="80" y="10" font-size="9" fill="#5B21B6">出生</text>
+    <text x="300" y="10" font-size="9" fill="#5B21B6">还书</text>
+    <!-- 借阅证的生命线 -->
+    <text x="10" y="50" font-size="11" fill="#5B21B6">借阅证</text>
+    <line x1="100" y1="46" x2="240" y2="46" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="4,3"/>
+    <text x="100" y="40" font-size="9" fill="#8B5CF6">借出</text>
+    <text x="240" y="40" font-size="9" fill="#8B5CF6">归还</text>
+    <!-- ❌ 越界示意 -->
+    <text x="10" y="80" font-size="11" fill="#5B21B6">如果借阅证活得比 Alice 还长</text>
+    <line x1="80" y1="95" x2="330" y2="95" stroke="#DC2626" stroke-width="3"/>
+    <text x="320" y="90" font-size="10" fill="#DC2626">❌ 悬空！书已不在</text>
+    <text x="10" y="118" font-size="11" fill="#5B21B6">编译期直接拒绝 ❌</text>
+  </g>
+  <text x="980" y="325" text-anchor="middle" font-size="11" fill="#5B21B6">对应的 bug：Use-After-Free（悬垂指针）</text>
+
+  <!-- ========== C vs Rust 对比 ========== -->
+  <text x="600" y="385" text-anchor="middle" font-size="22" font-weight="700" fill="#0F172A">同样的需求，两种结果</text>
+  <text x="600" y="408" text-anchor="middle" font-size="13" fill="#475569">任务：「把一本书借给 Bob 看，然后在 Alice 那头再读一次」</text>
+
+  <!-- C/C++ 错误示例 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="430" width="540" height="240" rx="14" fill="url(#cppBg)" stroke="#DC2626" stroke-width="2"/>
+  </g>
+  <text x="330" y="460" text-anchor="middle" font-size="18" font-weight="700" fill="#7F1D1D">❌ C / C++ 的做法（运行时才会崩）</text>
+  <!-- 代码块 -->
+  <g transform="translate(80,475)">
+    <rect x="0" y="0" width="500" height="100" rx="6" fill="#1F2937"/>
+    <text x="14" y="22" font-family="monospace" font-size="12" fill="#E5E7EB">int* p = malloc(sizeof(int));</text>
+    <text x="14" y="42" font-family="monospace" font-size="12" fill="#E5E7EB">*p = 42;</text>
+    <text x="14" y="62" font-family="monospace" font-size="12" fill="#E5E7EB">free(p);</text>
+    <text x="14" y="82" font-family="monospace" font-size="12" fill="#FCA5A5">printf("%d", *p);   // 💥 段错误</text>
+  </g>
+  <!-- 解释 -->
+  <text x="330" y="600" text-anchor="middle" font-size="13" fill="#7F1D1D" font-weight="600">编译器一路放行，运行时随机爆炸</text>
+  <text x="330" y="620" text-anchor="middle" font-size="12" fill="#7F1D1D">编译期检查：❌ 零保护</text>
+  <text x="330" y="640" text-anchor="middle" font-size="12" fill="#7F1D1D">运行时表现：段错误、信息泄露、被攻击</text>
+  <text x="330" y="660" text-anchor="middle" font-size="12" fill="#7F1D1D">70% 高危安全漏洞的根因</text>
+
+  <!-- Rust 正确示例 -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="430" width="540" height="240" rx="14" fill="url(#rustBg)" stroke="#16A34A" stroke-width="2"/>
+  </g>
+  <text x="890" y="460" text-anchor="middle" font-size="18" font-weight="700" fill="#14532D">✅ Rust 的做法（编译期就被拦住）</text>
+  <g transform="translate(640,475)">
+    <rect x="0" y="0" width="500" height="100" rx="6" fill="#1F2937"/>
+    <text x="14" y="22" font-family="monospace" font-size="12" fill="#E5E7EB">let b = Box::new(42);</text>
+    <text x="14" y="42" font-family="monospace" font-size="12" fill="#86EFAC">let a = b;        // 所有权 move</text>
+    <text x="14" y="62" font-family="monospace" font-size="12" fill="#E5E7EB">drop(b);          // 显式释放</text>
+    <text x="14" y="82" font-family="monospace" font-size="12" fill="#FCA5A5">println!("{}", b);</text>
+    <text x="280" y="82" font-family="monospace" font-size="12" fill="#F87171">// ❌ 编译失败</text>
+  </g>
+  <text x="890" y="600" text-anchor="middle" font-size="13" fill="#14532D" font-weight="600">编译器在「写代码时」就拒绝</text>
+  <text x="890" y="620" text-anchor="middle" font-size="12" fill="#14532D">编译期检查：✅ 严格证明</text>
+  <text x="890" y="640" text-anchor="middle" font-size="12" fill="#14532D">运行时表现：根本没有机会出错</text>
+  <text x="890" y="660" text-anchor="middle" font-size="12" fill="#14532D">无 GC、零运行时开销</text>
+
+  <!-- ========== 底部对照小图：挡住哪些 bug ========== -->
+  <text x="600" y="715" text-anchor="middle" font-size="20" font-weight="700" fill="#0F172A">一张图看懂 Rust 阻止的 7 大内存 bug</text>
+
+  <g transform="translate(80,735)">
+    <!-- 7 个 bug 标签横排 -->
+    <g font-size="12" font-weight="600" fill="#0F172A">
+      <rect x="0" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="72" y="20" text-anchor="middle">悬垂指针</text>
+      <text x="72" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Use-After-Free</text>
+
+      <rect x="155" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="227" y="20" text-anchor="middle">双重释放</text>
+      <text x="227" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Double-Free</text>
+
+      <rect x="310" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="382" y="20" text-anchor="middle">缓冲区溢出</text>
+      <text x="382" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Buffer Overflow</text>
+
+      <rect x="465" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="537" y="20" text-anchor="middle">数据竞争</text>
+      <text x="537" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Data Race</text>
+
+      <rect x="620" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="692" y="20" text-anchor="middle">迭代器失效</text>
+      <text x="692" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Invalidation</text>
+
+      <rect x="775" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="847" y="20" text-anchor="middle">越界读取</text>
+      <text x="847" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">OOB Read</text>
+
+      <rect x="930" y="0" width="145" height="50" rx="8" fill="#FEE2E2" stroke="#DC2626"/>
+      <text x="1002" y="20" text-anchor="middle">未初始化</text>
+      <text x="1002" y="38" text-anchor="middle" font-size="10" fill="#7F1D1D">Uninit Read</text>
+    </g>
+  </g>
+</svg>
