@@ -103,6 +103,7 @@ AUTOSAR Adaptive Platform（AP）全景详解，面向域控/中央计算单元/
 3. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
 4. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
 5. 想了解车企语言栈现状时看 [`车企C-C++使用情况详解.md`](./车企C-C++使用情况详解.md)
+6. 写代码前/做语言标准选型时看 [`C++标准演进详解-C++98到C++26.md`](./C++标准演进详解-C++98到C++26.md)
 
 ## 🗂️ 仓库结构
 
