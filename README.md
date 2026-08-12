@@ -118,10 +118,11 @@ AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比�
 
 1. 先看 [`AUTOSAR-架构详解-后端转嵌入式.md`](./AUTOSAR-架构详解-后端转嵌入式.md) 建立 AUTOSAR 全景
 2. 接触域控/智驾/座舱/中央计算时，看 [`AUTOSAR-Adaptive-平台详解.md`](./AUTOSAR-Adaptive-平台详解.md) 学习 AP
-3. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
-4. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
-5. 想了解车企语言栈现状时看 [`车企C-C++使用情况详解.md`](./车企C-C++使用情况详解.md)
-6. 写代码前/做语言标准选型时看 [`C++标准演进详解-C++98到C++26.md`](./C++标准演进详解-C++98到C++26.md)
+3. 做平台选型/对比时看 [`AUTOSAR-Adaptive-vs-Classic-对比详解.md`](./AUTOSAR-Adaptive-vs-Classic-对比详解.md)
+4. 再看 [`Vector-DaVinci-工具链详解.md`](./Vector-DaVinci-工具链详解.md) 了解工具如何落地
+5. 通信中间件选型时看 [`通信中间件DDS-SOMEIP-gRPC详解.md`](./通信中间件DDS-SOMEIP-gRPC详解.md)
+6. 想了解车企语言栈现状时看 [`车企C-C++使用情况详解.md`](./车企C-C++使用情况详解.md)
+7. 写代码前/做语言标准选型时看 [`C++标准演进详解-C++98到C++26.md`](./C++标准演进详解-C++98到C++26.md)
 
 ## 🗂️ 仓库结构
 
