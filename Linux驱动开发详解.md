@@ -34,7 +34,7 @@ AUTOSAR Adaptive Platform（AP）规范要求运行在 **POSIX OS**（主流是 
 
 > 把这张图记在脑子里，剩下的章节都是它的展开。
 
-![Linux 设备驱动全景图](images/linux-driver-overview.svg)
+![Linux 设备驱动全景图](images/linux-driver-overview.png)
 
 四层关系一句话总结：**应用 → 系统调用 → 内核子系统 → 驱动 → 硬件寄存器/中断/DMA**。驱动既是被内核调用的"仆人"，也是操作硬件的"主人"，所以叫"翻译官"。
 
