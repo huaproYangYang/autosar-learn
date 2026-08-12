@@ -131,6 +131,7 @@ AUTOSAR Classic Platform（CP）与 Adaptive Platform（AP）的全方位对比�
 ├── README.md
 ├── AUTOSAR-架构详解-后端转嵌入式.md
 ├── AUTOSAR-Adaptive-平台详解.md
+├── AUTOSAR-Adaptive-vs-Classic-对比详解.md
 ├── Vector-DaVinci-工具链详解.md
 ├── 通信中间件DDS-SOMEIP-gRPC详解.md
 ├── 车企C-C++使用情况详解.md
